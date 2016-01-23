@@ -1,6 +1,18 @@
 class FirstInputsController < ApplicationController
   before_action :set_first_input, only: [:show, :edit, :update, :destroy]
 
+#add a contact page
+	def contact
+  end
+  
+#add a help page
+	def help
+  end
+
+#add a about page
+	def about
+  end
+
   # GET /first_inputs
   # GET /first_inputs.json
   def index

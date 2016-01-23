@@ -1,0 +1,12 @@
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <%= link_to "sample app", '#', id: "logo" %>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Home Page", '#' %></li>
+            <li><%= link_to 'New Deal', new_first_input_path %></li>
+            <li><%= link_to 'Test Deal', @first_input %></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
