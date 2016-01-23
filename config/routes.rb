@@ -5,9 +5,6 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'first_inputs#new'
-  get  'first_inputs/help'
-  get  'first_inputs/about'
-  get  'first_inputs/contact'
 
 
   # Example of regular route:
