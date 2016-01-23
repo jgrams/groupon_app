@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160123073451) do
+ActiveRecord::Schema.define(version: 20160123193500) do
 
   create_table "first_inputs", force: :cascade do |t|
     t.integer  "num_options"
@@ -22,5 +22,10 @@ ActiveRecord::Schema.define(version: 20160123073451) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
+
+  add_index "first_inputs", ["biz_name"], name: "index_first_inputs_on_biz_name"
+  add_index "first_inputs", ["deal_type"], name: "index_first_inputs_on_deal_type"
+  add_index "first_inputs", ["longer_descriptor"], name: "index_first_inputs_on_longer_descriptor"
+  add_index "first_inputs", ["num_options"], name: "index_first_inputs_on_num_options"
 
 end
