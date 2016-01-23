@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  num_options: 1
+  deal_type: MyString
+  biz_name: MyString
+  longer_descriptor: MyString
+  multi_voucher: false
+
+two:
+  num_options: 1
+  deal_type: MyString
+  biz_name: MyString
+  longer_descriptor: MyString
+  multi_voucher: false

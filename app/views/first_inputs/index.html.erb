@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing First Inputs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Number of Options</th>
+      <th>Deal Type: GenSpend or Product Deal</th>
+      <th>Business Name</th>
+      <th>Short Descriptor</th>
+      <th>Check for Multi-Voucher Deals</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @first_inputs.each do |first_input| %>
+      <tr>
+        <td><%= first_input.num_options %></td>
+        <td><%= first_input.deal_type %></td>
+        <td><%= first_input.biz_name %></td>
+        <td><%= first_input.longer_descriptor %></td>
+        <td><%= first_input.multi_voucher %></td>
+        <td><%= link_to 'Show', first_input %></td>
+        <td><%= link_to 'Edit', edit_first_input_path(first_input) %></td>
+        <td><%= link_to 'Destroy', first_input, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Construct a New Deal', new_first_input_path %>
