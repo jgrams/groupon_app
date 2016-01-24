@@ -1,8 +1,31 @@
 <p id="notice"><%= notice %></p>
 
+
+<%if @gallery_title != ""%>
+<p>
+<strong>Gallery Title:  </strong>
+<%= @gallery_title %>
+</p>
+<p>
+<strong>Mobile API Title:  </strong>
+<%= @title %>
+</p>
+<p>
+<strong>Descriptor:  </strong>
+<%= @descriptor %>
+</p>
+<strong>Short Descriptor:  </strong>
+<%= @short_descriptor %>
+</p>
+<p>
+<strong>Write Up:  </strong>
+<%= @writeup %>
+</p>
+<%end%>
+
 <p>
   <strong>Num options:</strong>
-  <%= @first_input.num_options %>
+  <%=@first_input.num_options %>
 </p>
 
 <p>
@@ -24,6 +47,20 @@
   <strong>Multi voucher:</strong>
   <%= @first_input.multi_voucher %>
 </p>
+
+
+
+<p>
+  <strong>Additional Inputs:</strong>
+  <%= @first_input.multi_voucher %>
+</p>
+
+<p>
+  <strong>Multi voucher:</strong>
+  <%= @first_input.multi_voucher %>
+</p>
+
+
 
 <%= link_to 'Edit', edit_first_input_path(@first_input) %> |
 <%= link_to 'Back', first_inputs_path %>
