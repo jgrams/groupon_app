@@ -83,4 +83,31 @@ class FirstInputsController < ApplicationController
     def first_input_params
       params.require(:first_input).permit(:num_options, :deal_type, :biz_name, :longer_descriptor, :multi_voucher)
     end
+
+		def output_chooser
+      if :deal_type == "Gen Spend"  && :num_options == 1  && :multi_voucher == false
+    		redirect_to @first_input, notice: 'test success'
+    		#genspend_oneoption
+  		elsif :deal_type == "Gen Spend"  && :num_options >= 2  && :multi_voucher == false
+    		redirect_to @first_input, notice: 'test success'
+    		#genspend_multoptions
+  		elsif :deal_type == "Product Deal"  && :num_options == 1  && :multi_voucher == false
+    		redirect_to @first_input, notice: 'test success'
+    		#proddeal_oneoption
+			elsif :deal_type == "Product Deal"  && :num_options >= 2  && :multi_voucher == false
+    		redirect_to @first_input, notice: 'test success'
+    		#proddeal_multoptions    			
+ 			elsif :deal_type == "Gen Spend"  && :num_options == 1  && :multi_voucher == true
+    		redirect_to @first_input, notice: 'test success'
+      	#proddeal_oneoption_multvouch
+  		elsif :deal_type == "Gen Spend" && :num_options >= 2  && :multi_voucher == true
+    		redirect_to @first_input, notice: 'test success'
+      	#genspend_multoptions_multvouch
+  		elsif :deal_type == "Product Deal"  && :num_options == 1  && :multi_voucher == true
+    		redirect_to @first_input, notice: 'test success'			
+  	  	#proddeal_oneoption_multvouch
+  		elsif :deal_type == "Product Deal"  && :num_options >= 2  && :multi_voucher == true
+    		redirect_to @first_input, notice: 'test success'
+			end
+		end
 end
