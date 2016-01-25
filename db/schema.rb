@@ -22,9 +22,9 @@ ActiveRecord::Schema.define(version: 20160125113900) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.string   "multoption_types"
-    t.integer  "option_multiplier"
     t.string   "optionals"
     t.string   "option_descriptor"
+    t.string   "option_multiplier"
   end
 
   add_index "first_inputs", ["biz_name"], name: "index_first_inputs_on_biz_name"

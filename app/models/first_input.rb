@@ -10,11 +10,11 @@ class Article < ActiveRecord::Base
 end
 
 class Article < ActiveRecord::Base
-	MULTSTRUCTURE = ['With Optional:', 'Multiplied', 'Deal is Complicated']
+	MULTSTRUCTURE = ['Multiplied', 'Optional', 'Complicated']
 end
 
 class Article < ActiveRecord::Base
-	MULTIPLIERTYPE = ['Short Descriptor', 'People', 'Minute', 'Hour', 'Day', 'Week', 'Month', 'Year']
+	MULTIPLIERTYPE = ['Short Descriptor', 'People', 'Minutes', 'Hours', 'Days', 'Weeks', 'Months', 'Years']
 end
 
 #array output functions use to convert integer inputs into string outputs

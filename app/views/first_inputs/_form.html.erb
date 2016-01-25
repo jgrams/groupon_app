@@ -28,32 +28,36 @@
     <%= f.label :longer_descriptor, "Descripton of the Deal. Always in Caps, Plural for Multiple Options" %><br>
     <%= f.text_field :longer_descriptor %>
   </div>
+	<br>
+	<p>Following fields are for <i>Product Deals</i> with <i>Multiple Options.</i></p>
+  <div class="field">
+    <%= f.label :multoption_types, "Multiplied is deals like: One X, Two X. Optional is deals like: \"X\" or \"X with Y\". Complicated is deals that will hit character limits."%><br>
+    <%= f.collection_select :multoption_types, Article::MULTSTRUCTURE, :to_s, :to_s, 
+       :include_blank => true %>
+  </div>
+  <p>Hit Submit if you chose "Complicated"</p>
   <br>
+  <p><b>Two fields for "Multiplied" deals:</b></p>
   <div class="field">
-    <%= f.label :deal_type, "Product Deal or Gen Spend:" %><br>
-    <%= f.collection_select :deal_type, Article::DEALTYPES, :to_s, :to_s, 
+    <%= f.label :optionals, "Short Descriptor is for deals like One Facial, Two Facials.  The rest are self-explanatory." %><br>
+    <%= f.collection_select :optionals, Article::MULTIPLIERTYPE, :to_s, :to_s, 
        :include_blank => true %>
   </div>
   <div class="field">
-    <%= f.label :deal_type, "Product Deal or Gen Spend:" %><br>
-    <%= f.collection_select :deal_type, Article::DEALTYPES, :to_s, :to_s, 
-       :include_blank => true %>
+    <%= f.label :option_multiplier, "Multipler on each option as an intereger separated by spaces. One Facial, Two Facials, Four Facials would be \"1 2 4\"" %><br>
+    <%= f.text_field :option_multiplier %>
   </div>
+   <br>
+  <p><b>One field for "Optional" deals:</b></p>
   <div class="field">
-    <%= f.label :deal_type, "Product Deal or Gen Spend:" %><br>
-    <%= f.collection_select :deal_type, Article::DEALTYPES, :to_s, :to_s, 
-       :include_blank => true %>
-  </div>  
-	<br>
-	<p>These fields needs to be filled in for any product deal with multiple options.</p>
-	<br>
-	
+    <%= f.label :option_descriptor, "All the add ons, separated by \", \".  Blowout, Blowout with Cut, Blowout with Style would be \"Cut, Style\"" %><br>
+    <%= f.text_field :option_descriptor %>
+  </div> 
+  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
   <div class="field">
     <%= f.label :multi_voucher, "Check if MultiVoucher. NOT YET BUILT!"%><br>
     <%= f.check_box :multi_voucher %>
   </div>
-  <div class="actions">
-    <%= f.submit "Create Fields" %>
-  </div>
-
 <% end %>
