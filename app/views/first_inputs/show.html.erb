@@ -19,48 +19,12 @@
 </p>
 <p>
 <strong>Write Up:  </strong>
+<%= @writeupheader %>
+<br>
+<br>
 <%= @writeup %>
 </p>
 <%end%>
-
-<p>
-  <strong>Num options:</strong>
-  <%=@first_input.num_options %>
-</p>
-
-<p>
-  <strong>Deal type:</strong>
-  <%= @first_input.deal_type %>
-</p>
-
-<p>
-  <strong>Biz name:</strong>
-  <%= @first_input.biz_name %>
-</p>
-
-<p>
-  <strong>Longer descriptor:</strong>
-  <%= @first_input.longer_descriptor %>
-</p>
-
-<p>
-  <strong>Multi voucher:</strong>
-  <%= @first_input.multi_voucher %>
-</p>
-
-
-
-<p>
-  <strong>Additional Inputs:</strong>
-  <%= @first_input.multi_voucher %>
-</p>
-
-<p>
-  <strong>Multi voucher:</strong>
-  <%= @first_input.multi_voucher %>
-</p>
-
-
 
 <%= link_to 'Edit', edit_first_input_path(@first_input) %> |
 <%= link_to 'Back', first_inputs_path %>

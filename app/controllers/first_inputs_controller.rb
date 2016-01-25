@@ -4,10 +4,6 @@ class FirstInputsController < ApplicationController
 #add a contact page
 	def contact
   end
-  
-#add a help page
-	def help
-  end
 
 #add a about page
 	def about
@@ -22,27 +18,30 @@ class FirstInputsController < ApplicationController
   # GET /first_inputs/1
   # GET /first_inputs/1.json
   def show
-  	
   	if @first_input.num_options == 1 && @first_input.deal_type == "Gen Spend" && @first_input.multi_voucher == false
+  		
   		@gallery_title = "$pr for $va for " << @first_input.longer_descriptor
 			@title = "$pr for $va Worth of " << @first_input.longer_descriptor << " from " << @first_input.biz_name
 			@descriptor = @first_input.longer_descriptor
 			@short_descriptor = @first_input.longer_descriptor
-			@writeup = "####The Deal * $pr for a " << @first_input.longer_descriptor << " (a $val value)".downcase
-  	
+			@writeupheader = "####The Deal"
+			@writeup = " * $pr for a " << @first_input.longer_descriptor.downcase << " (a $val value)"
+			  	
   	elsif @first_input.num_options >= 2 && @first_input.deal_type == "Gen Spend" && @first_input.multi_voucher == false
   		@gallery_title = "Up to $max Off " << @first_input.longer_descriptor
 			@title = @first_input.longer_descriptor << " from " << @first_input.biz_name << " ($maximum_of_discount_percentage Off). " << Article::NUMERALS[@first_input.num_options] << " Options Available."
 			@descriptor = @first_input.longer_descriptor
 			@short_descriptor = @first_input.longer_descriptor
-			@writeup = "####The Deal * $pr for a " << @first_input.longer_descriptor << " (a $val value)".downcase
+			@writeupheader = "####The Deal"
+			@writeup = " * $pr for a " << @first_input.longer_descriptor.downcase << " (a $val value)"
   	
   	elsif @first_input.num_options == 1 && @first_input.deal_type == "Product Deal" && @first_input.multi_voucher == false
   		@gallery_title = "$pr for a " << @first_input.longer_descriptor
 			@title = "$pr for a " << @first_input.longer_descriptor << " from " << @first_input.biz_name << " ($val Value)"
 			@descriptor = @first_input.longer_descriptor
 			@short_descriptor = @first_input.longer_descriptor
-			@writeup = "####The Deal * $pr for a " << @first_input.longer_descriptor << " (a $val value)".downcase
+			@writeupheader = "####The Deal"
+			@writeup = " * $pr for a " << @first_input.longer_descriptor.downcase << " (a $val value)"
   	
   	elsif @first_input.num_options >= 2 && @first_input.deal_type == "Product Deal" && @first_input.multi_voucher == false	
   		@longer_descriptor = @first_input.longer_descriptor
@@ -68,26 +67,6 @@ class FirstInputsController < ApplicationController
 
   # GET /first_inputs/1/edit
   def edit
-  end
-
-  def route
-  	if @first_input.num_options == 1 && @first_input.deal_type == "Gen Spend" && @first_input.multi_voucher == false
-  		@longer_descriptor = @first_input.longer_descriptor
-  	elsif @first_input.num_options >= 2 && @first_input.deal_type == "Gen Spend" && @first_input.multi_voucher == false
-  		@longer_descriptor = @first_input.longer_descriptor
-  	elsif @first_input.num_options == 1 && @first_input.deal_type == "Product Deal" && @first_input.multi_voucher == false
-  		@longer_descriptor = @first_input.longer_descriptor
-  	elsif @first_input.num_options >= 2 && @first_input.deal_type == "Product Deal" && @first_input.multi_voucher == false	
-  		@longer_descriptor = @first_input.longer_descriptor
-  	elsif @first_input.num_options == 1 && @first_input.deal_type == "Gen Spend" && @first_input.multi_voucher == true
-  		@longer_descriptor = @first_input.longer_descriptor
-  	elsif @first_input.num_options >= 2 && @first_input.deal_type == "Gen Spend" && @first_input.multi_voucher == true
-  		@longer_descriptor = @first_input.longer_descriptor
-  	elsif @first_input.num_options == 1 && @first_input.deal_type == "Product Deal" && @first_input.multi_voucher == true
-  		@longer_descriptor = @first_input.longer_descriptor
-  	elsif @first_input.num_options >= 2 && @first_input.deal_type == "Product Deal" && @first_input.multi_voucher == true
-  		@longer_descriptor = @first_input.longer_descriptor
-  	end
   end
 
 
@@ -142,32 +121,4 @@ class FirstInputsController < ApplicationController
       params.require(:first_input).permit(:num_options, :deal_type, :biz_name, :longer_descriptor, :multi_voucher)
     end
 
-
-
-		def output_chooser
-      if :deal_type == "Gen Spend"  && :num_options == 1  && :multi_voucher == false
-    		redirect_to @first_input, notice: 'test success'
-    		#genspend_oneoption
-  		elsif :deal_type == "Gen Spend"  && :num_options >= 2  && :multi_voucher == false
-    		redirect_to @first_input, notice: 'test success'
-    		#genspend_multoptions
-  		elsif :deal_type == "Product Deal"  && :num_options == 1  && :multi_voucher == false
-    		redirect_to @first_input, notice: 'test success'
-    		#proddeal_oneoption
-			elsif :deal_type == "Product Deal"  && :num_options >= 2  && :multi_voucher == false
-    		redirect_to @first_input, notice: 'test success'
-    		#proddeal_multoptions    			
- 			elsif :deal_type == "Gen Spend"  && :num_options == 1  && :multi_voucher == true
-    		redirect_to @first_input, notice: 'test success'
-      	#proddeal_oneoption_multvouch
-  		elsif :deal_type == "Gen Spend" && :num_options >= 2  && :multi_voucher == true
-    		redirect_to @first_input, notice: 'test success'
-      	#genspend_multoptions_multvouch
-  		elsif :deal_type == "Product Deal"  && :num_options == 1  && :multi_voucher == true
-    		redirect_to @first_input, notice: 'test success'			
-  	  	#proddeal_oneoption_multvouch
-  		elsif :deal_type == "Product Deal"  && :num_options >= 2  && :multi_voucher == true
-    		redirect_to @first_input, notice: 'test success'
-			end
-		end
 end

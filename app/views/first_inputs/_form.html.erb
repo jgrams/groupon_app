@@ -1,7 +1,7 @@
 <%= form_for(@first_input) do |f| %>
   <% if @first_input.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@first_input.errors.count, "error") %> prohibited this first_input from being saved:</h2>
+      <h2><%= pluralize(@first_input.errors.count, "error") %> stopped this from being saved.</h2>
 
       <ul>
       <% @first_input.errors.full_messages.each do |message| %>
@@ -12,24 +12,25 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :num_options, "Number of Options as an Integer:" %><br>
-    <%= f.number_field :num_options %>
-  </div>
-  <div class="field">
     <%= f.label :deal_type, "Product Deal or Gen Spend:" %><br>
     <%= f.collection_select :deal_type, Article::DEALTYPES, :to_s, :to_s, 
        :include_blank => true %>
+  </div>
+  <div class="field">
+    <%= f.label :num_options, "Number of Options as an Integer:" %><br>
+    <%= f.number_field :num_options %>
   </div>
   <div class="field">
     <%= f.label :biz_name, "Business Name:" %><br>
     <%= f.text_field :biz_name %>
   </div>
   <div class="field">
-    <%= f.label :longer_descriptor, "Descriptor of the Deal. Always in Caps, Plural for Multiple Options" %><br>
+    <%= f.label :longer_descriptor, "Descripton of the Deal. Always in Caps, Plural for Multiple Options" %><br>
     <%= f.text_field :longer_descriptor %>
   </div>
+  <br>
   <div class="field">
-    <%= f.label :multi_voucher, "Check if MultiVoucher" %><br>
+    <%= f.label :multi_voucher, "Check if MultiVoucher. NOT YET BUILT!"%><br>
     <%= f.check_box :multi_voucher %>
   </div>
   <div class="actions">

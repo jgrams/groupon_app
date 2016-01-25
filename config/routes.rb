@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'title_fields/output'
-
+  get 'first_inputs/contact'
+  get 'first_inputs/about'
 
 
   resources :first_inputs

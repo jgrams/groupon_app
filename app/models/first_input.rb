@@ -22,3 +22,12 @@ class Article < ActiveRecord::Base
 	NUMERALS = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 
 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen']
 end
+
+
+def gensped_oneoption
+  	@gallery_title = "$pr for $va for " << @first_input.longer_descriptor
+		@title = "$pr for $va Worth of " << @first_input.longer_descriptor << " from " << @first_input.biz_name
+		@descriptor = @first_input.longer_descriptor
+		@short_descriptor = @first_input.longer_descriptor
+		@writeup = "####The Deal * $pr for a " << @first_input.longer_descriptor << " (a $val value)".downcase
+end
