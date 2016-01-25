@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160123193500) do
+ActiveRecord::Schema.define(version: 20160125095147) do
 
   create_table "first_inputs", force: :cascade do |t|
     t.integer  "num_options"

@@ -30,10 +30,30 @@
   </div>
   <br>
   <div class="field">
+    <%= f.label :deal_type, "Product Deal or Gen Spend:" %><br>
+    <%= f.collection_select :deal_type, Article::DEALTYPES, :to_s, :to_s, 
+       :include_blank => true %>
+  </div>
+  <div class="field">
+    <%= f.label :deal_type, "Product Deal or Gen Spend:" %><br>
+    <%= f.collection_select :deal_type, Article::DEALTYPES, :to_s, :to_s, 
+       :include_blank => true %>
+  </div>
+  <div class="field">
+    <%= f.label :deal_type, "Product Deal or Gen Spend:" %><br>
+    <%= f.collection_select :deal_type, Article::DEALTYPES, :to_s, :to_s, 
+       :include_blank => true %>
+  </div>  
+	<br>
+	<p>These fields needs to be filled in for any product deal with multiple options.</p>
+	<br>
+	
+  <div class="field">
     <%= f.label :multi_voucher, "Check if MultiVoucher. NOT YET BUILT!"%><br>
     <%= f.check_box :multi_voucher %>
   </div>
   <div class="actions">
     <%= f.submit "Create Fields" %>
   </div>
+
 <% end %>
