@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160125095147) do
+ActiveRecord::Schema.define(version: 20160125113900) do
 
   create_table "first_inputs", force: :cascade do |t|
     t.integer  "num_options"
@@ -21,6 +21,10 @@ ActiveRecord::Schema.define(version: 20160125095147) do
     t.boolean  "multi_voucher"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.string   "multoption_types"
+    t.integer  "option_multiplier"
+    t.string   "optionals"
+    t.string   "option_descriptor"
   end
 
   add_index "first_inputs", ["biz_name"], name: "index_first_inputs_on_biz_name"
