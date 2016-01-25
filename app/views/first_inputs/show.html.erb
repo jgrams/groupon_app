@@ -1,30 +1,40 @@
-<p id="notice"><%= notice %></p>
-
-
-<%if @gallery_title != ""%>
+<br>
+<br>
 <p>
 <strong>Gallery Title:  </strong>
+</p>
+<p>
 <%= @gallery_title %>
 </p>
 <p>
 <strong>Mobile API Title:  </strong>
+</p>
+<p>
 <%= @title %>
 </p>
 <p>
 <strong>Descriptor:  </strong>
+</p>
+<p>
 <%= @descriptor %>
 </p>
+<p>
 <strong>Short Descriptor:  </strong>
+</p>
+<p>
 <%= @short_descriptor %>
 </p>
 <p>
 <strong>Write Up:  </strong>
+</p>
+<p>
 <%= @writeupheader %>
 <br>
 <br>
 <%= @writeup %>
 </p>
-<%end%>
+<br>
+<br>
 
-<%= link_to 'Edit', edit_first_input_path(@first_input) %> |
-<%= link_to 'Back', first_inputs_path %>
+
+|<%= link_to 'Edit', edit_first_input_path(@first_input) %>|
