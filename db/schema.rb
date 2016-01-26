@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160123073451) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "first_inputs", force: :cascade do |t|
     t.integer  "num_options"
     t.string   "deal_type"
