@@ -76,4 +76,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  
+  #Line Added to enable CSS files to translate to Heroku per: 
+	# http://stackoverflow.com/questions/16074170/rails-stylesheets-on-heroku
+  config.serve_static_assets = true
 end
