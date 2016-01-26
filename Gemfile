@@ -14,7 +14,7 @@ gem 'byebug',      '3.4.0'
 gem 'web-console', '2.0.0.beta3'
 gem 'spring',      '1.1.3'
 gem 'bootstrap-sass'
-
+gem 'rails_serve_static_assets'
 
 group :test do
   gem 'minitest-reporters', '1.0.5'
