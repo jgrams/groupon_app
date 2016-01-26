@@ -14,7 +14,6 @@ gem 'byebug',      '3.4.0'
 gem 'web-console', '2.0.0.beta3'
 gem 'spring',      '1.1.3'
 gem 'bootstrap-sass'
-gem 'rails_12factor'
 
 
 group :test do
@@ -23,3 +22,4 @@ group :test do
   gem 'guard-minitest',     '2.3.1'
 end
 
+gem 'rails_12factor', group: :production
