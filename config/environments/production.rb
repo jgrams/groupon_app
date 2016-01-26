@@ -80,4 +80,5 @@ Rails.application.configure do
   #Line Added to enable CSS files to translate to Heroku per: 
 	# http://stackoverflow.com/questions/16074170/rails-stylesheets-on-heroku
   config.serve_static_assets = true
+  config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
 end
