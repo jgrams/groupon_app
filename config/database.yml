@@ -14,13 +14,29 @@
 # Configure Using Gemfile
 # gem 'pg'
 #
-default: &default
-  adapter: postgresql
-  encoding: unicode
-  # For details on connection pooling, see rails configuration guide
-  # http://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: 5
-  
 development:
-  <<: *default
-  database: groupon_app_development
+  adapter: postgresql
+  encoding: utf8
+  database: project_development
+  pool: 5
+  username: 
+  password:
+
+test: &TEST
+  adapter: postgresql
+  encoding: utf8
+  database: project_test
+  pool: 5
+  username: 
+  password:
+
+production:
+  adapter: postgresql
+  encoding: utf8
+  database: project_production
+  pool: 5
+  username: 
+  password:
+
+cucumber:
+  <<: *TEST
