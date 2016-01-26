@@ -24,4 +24,3 @@ default: &default
 development:
   <<: *default
   database: groupon_app_development
->>>>>>> master

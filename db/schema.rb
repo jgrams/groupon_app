@@ -25,14 +25,14 @@ ActiveRecord::Schema.define(version: 20160125113900) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.string   "multoption_types"
+    t.string   "option_multiplier"
     t.string   "optionals"
     t.string   "option_descriptor"
-    t.string   "option_multiplier"
   end
 
-  add_index "first_inputs", ["biz_name"], name: "index_first_inputs_on_biz_name"
-  add_index "first_inputs", ["deal_type"], name: "index_first_inputs_on_deal_type"
-  add_index "first_inputs", ["longer_descriptor"], name: "index_first_inputs_on_longer_descriptor"
-  add_index "first_inputs", ["num_options"], name: "index_first_inputs_on_num_options"
+  add_index "first_inputs", ["biz_name"], name: "index_first_inputs_on_biz_name", using: :btree
+  add_index "first_inputs", ["deal_type"], name: "index_first_inputs_on_deal_type", using: :btree
+  add_index "first_inputs", ["longer_descriptor"], name: "index_first_inputs_on_longer_descriptor", using: :btree
+  add_index "first_inputs", ["num_options"], name: "index_first_inputs_on_num_options", using: :btree
 
 end

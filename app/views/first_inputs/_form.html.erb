@@ -29,7 +29,11 @@
     <%= f.text_field :longer_descriptor %>
   </div>
 	<br>
-	<p>Following fields are for <i>Product Deals</i> with <i>Multiple Options.</i></p>
+	  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
+  <br>
+	<h2>Following fields are for <i>Product Deals</i> with <i>Multiple Options.</i></h2>
   <div class="field">
     <%= f.label :multoption_types, "Multiplied is deals like: One X, Two X. Optional is deals like: \"X\" or \"X with Y\". Complicated is deals that will hit character limits."%><br>
     <%= f.collection_select :multoption_types, Article::MULTSTRUCTURE, :to_s, :to_s, 
@@ -37,27 +41,27 @@
   </div>
   <p>Hit Submit if you chose "Complicated"</p>
   <br>
-  <p><b>Two fields for "Multiplied" deals:</b></p>
+  <h2>Two fields for "Multiplied" deals:</h2>
   <div class="field">
-    <%= f.label :optionals, "Short Descriptor is for deals like One Facial, Two Facials.  The rest are self-explanatory." %><br>
+    <%= f.label :optionals, "Short Descriptor is for deals like One Facial, Two Facials.  The time based ones are a little broken, good luck." %><br>
     <%= f.collection_select :optionals, Article::MULTIPLIERTYPE, :to_s, :to_s, 
        :include_blank => true %>
   </div>
   <div class="field">
-    <%= f.label :option_multiplier, "Multipler on each option as an intereger separated by spaces. One Facial, Two Facials, Four Facials would be \"1 2 4\"" %><br>
+    <%= f.label :option_multiplier, "Multipler on each option as an intereger separated by spaces. One Facial, Two Facials, Four Facials would be: 1 2 4" %><br>
     <%= f.text_field :option_multiplier %>
   </div>
    <br>
-  <p><b>One field for "Optional" deals:</b></p>
+  <h2>One field for "Optional" deals:</h2>
   <div class="field">
     <%= f.label :option_descriptor, "All the add ons, separated by \", \".  Blowout, Blowout with Cut, Blowout with Style would be \"Cut, Style\"" %><br>
     <%= f.text_field :option_descriptor %>
   </div> 
+  <br>
+  <br>  
   <div class="actions">
     <%= f.submit "Submit" %>
   </div>
-  <div class="field">
-    <%= f.label :multi_voucher, "Check if MultiVoucher. NOT YET BUILT!"%><br>
-    <%= f.check_box :multi_voucher %>
-  </div>
+  <br>
+
 <% end %>
