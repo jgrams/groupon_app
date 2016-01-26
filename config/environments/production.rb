@@ -26,10 +26,10 @@ Rails.application.configure do
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
-  # config.assets.css_compressor = :sass
+  #config.assets.css_compressor = :sass
 
-  # Do fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = true
+  # Do not fallback to assets pipeline if a precompiled asset is missed.
+  config.assets.compile = false
 
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.
@@ -76,9 +76,5 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  
-  #Line Added to enable CSS files to translate to Heroku per: 
-	# http://stackoverflow.com/questions/16074170/rails-stylesheets-on-heroku
-  config.serve_static_assets = true
-  config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+
 end
