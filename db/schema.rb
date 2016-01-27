@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160125113900) do
+ActiveRecord::Schema.define(version: 20160125113703) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,8 +26,6 @@ ActiveRecord::Schema.define(version: 20160125113900) do
     t.datetime "updated_at",        null: false
     t.string   "multoption_types"
     t.string   "option_multiplier"
-    t.string   "optionals"
-    t.string   "option_descriptor"
   end
 
   add_index "first_inputs", ["biz_name"], name: "index_first_inputs_on_biz_name", using: :btree
