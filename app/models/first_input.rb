@@ -3,7 +3,13 @@ class FirstInput < ActiveRecord::Base
 	  validates :deal_type, presence: true, length: { maximum: 255 }
 	  validates :biz_name, presence: true, length: { maximum: 255 }
 	  validates :longer_descriptor, presence: true, length: { maximum: 255 }
+	  validates_presence_of :multoption_types, :if => :prod_andmult?
+	
+	def prod_andmult?
+		:deal_type == "Product Deal" and :num_options >=2
+	end
 end 
+
 
 class Article < ActiveRecord::Base
 	DEALTYPES = ['Product Deal', 'Gen Spend']
