@@ -22,27 +22,3 @@ class Article < ActiveRecord::Base
 	NUMERALS = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 
 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen']
 end
-
-
-class FirstInput < ActiveRecord::Base
-#determine the output functions called by dealprint in controller
-  def self.show
-  	if @first_input.num_options == 1 && @first_input.deal_type == "Gen Spend" && @first_input.multi_voucher == false
-  		gensped_oneoption
-		elsif @first_input.num_options >= 2 && @first_input.deal_type == "Gen Spend" && @first_input.multi_voucher == false
-		  genspend_multoption
-  	elsif @first_input.num_options == 1 && @first_input.deal_type == "Product Deal" && @first_input.multi_voucher == false
-			proddeal_oneoption
-  	elsif @first_input.num_options >= 2 && @first_input.deal_type == "Product Deal" && @first_input.multi_voucher == false	
-  		proddeal_multoption
-  	elsif @first_input.num_options == 1 && @first_input.deal_type == "Gen Spend" && @first_input.multi_voucher == true
-  		gensped_oneoption
-  	elsif @first_input.num_options >= 2 && @first_input.deal_type == "Gen Spend" && @first_input.multi_voucher == true
-  		gensped_oneoption
-  	elsif @first_input.num_options == 1 && @first_input.deal_type == "Product Deal" && @first_input.multi_voucher == true
-  		gensped_oneoption
-  	elsif @first_input.num_options >= 2 && @first_input.deal_type == "Product Deal" && @first_input.multi_voucher == true
-  		gensped_oneoption
-  	end
-  end
-end

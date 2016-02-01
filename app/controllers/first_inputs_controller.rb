@@ -91,9 +91,6 @@ class FirstInputsController < ApplicationController
 
   # GET /first_inputs/1
   # GET /first_inputs/1.json
-  def dealprint
-  	show
-	end
 
 	
   # GET /first_inputs/new
@@ -114,7 +111,7 @@ class FirstInputsController < ApplicationController
     respond_to do |format|
       if @first_input.save
         format.html { redirect_to @first_input, notice: 'First input was successfully created.' }
-        format.json { render :dealprint, status: :created, location: @first_input }
+        format.json { render :show, status: :created, location: @first_input }
       else
         format.html { render :new }
         format.json { render json: @first_input.errors, status: :unprocessable_entity }
@@ -128,7 +125,7 @@ class FirstInputsController < ApplicationController
     respond_to do |format|
       if @first_input.update(first_input_params)
         format.html { redirect_to @first_input, notice: 'First input was successfully updated.' }
-        format.json { render :dealprint, status: :ok, location: @first_input }
+        format.json { render :show, status: :ok, location: @first_input }
       else
         format.html { render :edit }
         format.json { render json: @first_input.errors, status: :unprocessable_entity }
