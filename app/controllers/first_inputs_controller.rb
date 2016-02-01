@@ -10,6 +10,8 @@ class FirstInputsController < ApplicationController
   end
   
   def show
+  #REMOVE FIRST LINE WHEN MULTI VOUCHERS IS ADDED
+  @first_input.multi_voucher = false
 		if @first_input.num_options == 1 && @first_input.deal_type == "Gen Spend" && @first_input.multi_voucher == false
 			gensped_oneoption
 		elsif @first_input.num_options >= 2 && @first_input.deal_type == "Gen Spend" && @first_input.multi_voucher == false

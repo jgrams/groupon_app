@@ -29,11 +29,8 @@
     <%= f.text_field :longer_descriptor %>
   </div>
 	<br>
-	  <div class="actions">
-    <%= f.submit "Submit" %>
-  </div>
   <br>
-	<h2>Following fields are for <i>Product Deals</i> with <i>Multiple Options.</i></h2>
+	<h2>Following fields are for <i><b>Product Deals</i></b> with <i><b>Multiple Options.</i></b></h2>
   <div class="field">
     <%= f.label :multoption_types, "Multiplied is deals like: One X, Two X. Optional is deals like: \"X\" or \"X with Y\". Complicated is deals that will hit character limits."%><br>
     <%= f.collection_select :multoption_types, Article::MULTSTRUCTURE, :to_s, :to_s, 
@@ -41,7 +38,7 @@
   </div>
   <p>Hit Submit if you chose "Complicated"</p>
   <br>
-  <h2>Two fields for "Multiplied" deals:</h2>
+  <h2>Two fields for <i><b>"Multiplied"</i></b> deals:</h2>
   <div class="field">
     <%= f.label :optionals, "Short Descriptor is for deals like One Facial, Two Facials.  The time based ones are a little broken, good luck." %><br>
     <%= f.collection_select :optionals, Article::MULTIPLIERTYPE, :to_s, :to_s, 
@@ -52,7 +49,7 @@
     <%= f.text_field :option_multiplier %>
   </div>
    <br>
-  <h2>One field for "Optional" deals:</h2>
+  <h2>One field for <i><b>"Optional"</i></b> deals:</h2>
   <div class="field">
     <%= f.label :option_descriptor, "All the add ons, separated by \", \".  Blowout, Blowout with Cut, Blowout with Style would be \"Cut, Style\"" %><br>
     <%= f.text_field :option_descriptor %>
