@@ -6,7 +6,7 @@ class FirstInput < ActiveRecord::Base
 	  validates_presence_of :multoption_types, :if => :prod_andmult?
 	
 	def prod_andmult?
-		:deal_type == "Product Deal" and :num_options >=2
+		:deal_type == "Product Deal" && :num_options >=2
 	end
 end 
 
@@ -16,7 +16,7 @@ class Article < ActiveRecord::Base
 end
 
 class Article < ActiveRecord::Base
-	MULTSTRUCTURE = ['Multiplied', 'Optional', 'Complicated']
+	MULTSTRUCTURE = ['Multiplied', 'Add-Ons', 'Complicated']
 end
 
 class Article < ActiveRecord::Base

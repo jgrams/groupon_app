@@ -53,7 +53,8 @@ class FirstInputsController < ApplicationController
 		@descriptor = @first_input.longer_descriptor			
 		@short_descriptor = @first_input.longer_descriptor
 		@writeupheader = "####Choose Between " << Article::NUMERALS[@first_input.num_options] << " Options"
-		@writeup = " * $pr for " << @first_input.longer_descriptor.downcase << " (a $val value)"
+		@temp_writeup = " * $pr for $val worth of " << @first_input.longer_descriptor.downcase << "\n"
+		@writeup = "#{@temp_writeup}" * @first_input.num_options
 	end
 
 	def proddeal_oneoption
@@ -62,7 +63,7 @@ class FirstInputsController < ApplicationController
 		@descriptor = @first_input.longer_descriptor
 		@short_descriptor = @first_input.longer_descriptor
 		@writeupheader = "####The Deal"
-		@writeup = " * $pr for a " << @first_input.longer_descriptor.downcase << " (a $val value)"
+		@writeup = " * $pr for a " << @first_input.longer_descriptor.downcase << " ($val value)"
 	end
 
 
@@ -72,20 +73,20 @@ class FirstInputsController < ApplicationController
 		@descriptor = @first_input.longer_descriptor	
 		@short_descriptor = @first_input.longer_descriptor
 		@writeupheader = "####Choose Between " << Article::NUMERALS[@first_input.num_options] << " Options"
-		@writeup = " * $pr for " << @first_input.longer_descriptor.downcase << " (a $val value)"
+		@writeup = " * $pr for " << @first_input.longer_descriptor.downcase << " ($val value)"
 			if @first_input.multoption_types == "Multiplied" 
 			
 				if @first_input.optionals == "Short Descriptor"
-					@title = "Up to $max Off " << @first_input.option_multiplier.split(' ').map(&:to_i).collect{|x| Article::NUMERALS[x]}.join(" or ") << " " << @first_input.longer_descriptor << " from " << @first_input.biz_name
+					@title = @first_input.option_multiplier.split(' ').map(&:to_i).collect{|x| Article::NUMERALS[x]}.join(" or ") << " " << @first_input.longer_descriptor << " from " << @first_input.biz_name << " (Up to $max Off)"
 				elsif @first_input.optionals == "People"
-					@title = "Up to $max Off " << @first_input.longer_descriptor << " for " << @first_input.option_multiplier.split(' ').map(&:to_i).collect{|x| Article::NUMERALS[x]}.join(" or ") << " " << @first_input.optionals << " from " << @first_input.biz_name
+					@title = @first_input.longer_descriptor << " for " << @first_input.option_multiplier.split(' ').map(&:to_i).collect{|x| Article::NUMERALS[x]}.join(" or ") << " " << @first_input.optionals << " from " << @first_input.biz_name << " (Up to $max Off)"
 #PARTICULARLY THIS			
 				else
-					@title = "Up to $max Off " << @first_input.option_multiplier.split(' ').map(&:to_i).join(" or ") << "  " << @first_input.optionals << " " << @first_input.longer_descriptor << " from " << @first_input.biz_name
+					@title = @first_input.option_multiplier.split(' ').map(&:to_i).join(" or ") << "  " << @first_input.optionals << " " << @first_input.longer_descriptor << " from " << @first_input.biz_name << " (Up to $max Off)"
 				end
 			
 			elsif @first_input.multoption_types == "Optional"
-				@title = "Up to $max Off " << @first_input.longer_descriptor << " With Optional " << @first_input.option_descriptor.split(", ")[0..-1].join(" or ").to_s << " from " << @first_input.biz_name
+				@title = @first_input.longer_descriptor << " With Optional " << @first_input.option_descriptor.split(", ")[0..-1].join(" or ").to_s << " from " << @first_input.biz_name << " (Up to $max Off)"
 			elsif @first_input.multoption_types == "Complicated"
 				@title = "Up to $max Off " << @first_input.longer_descriptor << " from " << @first_input.biz_name << ". " << Article::NUMERALS[@first_input.num_options] << " Options Available."
 			end

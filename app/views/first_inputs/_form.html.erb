@@ -17,41 +17,53 @@
        :include_blank => true %>
   </div>
   <div class="field">
-    <%= f.label :num_options, "Number of Options as an Integer:" %><br>
-    <%= f.number_field :num_options %>
+    <%= f.label :num_options, "Number of Options:" %><br>
+    <%= f.number_field :num_options, min: 1 %>
   </div>
   <div class="field">
     <%= f.label :biz_name, "Business Name:" %><br>
     <%= f.text_field :biz_name %>
   </div>
+  <br>
   <div class="field">
-    <%= f.label :longer_descriptor, "Descripton of the Deal. Always in Caps, Plural for Multiple Options" %><br>
+    <%= f.label :longer_descriptor, "Deal Description:" %><br>
+    <p>Single phrase that describes all the options. Capitalize like it's going on the site. For deals with more than one option, make the phrase plural.</p>
     <%= f.text_field :longer_descriptor %>
   </div>
 	<br>
   <br>
 	<h2>Following fields are for <i><b>Product Deals</i></b> with <i><b>Multiple Options.</i></b></h2>
+  <p>Select <b>Multiplied</b> when each option is the same product in different amounts. For example: "One Facial, Two Facials", "60 Minute Massage, 90 Minute Massage", or "Yoga for One, Yoga for Two".</p> 
+    
+  <p>Select <b>Add-Ons</b> for deals with options that build on each other, like: "Haircut" or "Haircut with Blowdry".</p>
+    
+	<p>Select <b>Complicated</b> for deals that don't fit into either category.</p>
+	<br>
   <div class="field">
-    <%= f.label :multoption_types, "Multiplied is deals like: One X, Two X. Optional is deals like: \"X\" or \"X with Y\". Complicated is deals that will hit character limits."%><br>
+    <%= f.label :multoption_types, "Type of Multi-Option Deal:"%><br>
     <%= f.collection_select :multoption_types, Article::MULTSTRUCTURE, :to_s, :to_s, 
        :include_blank => true %>
   </div>
-  <p>Hit Submit if you chose "Complicated"</p>
+  <p>Hit Submit if you chose "Complicated".  If you chose Multiplied, fill in the two fields below.  For Add On deals, fill in the one field at the bottom of the page.</p>
   <br>
   <h2>Two fields for <i><b>"Multiplied"</i></b> deals:</h2>
   <div class="field">
-    <%= f.label :optionals, "Short Descriptor is for deals like One Facial, Two Facials.  The time based ones are a little broken, good luck." %><br>
+    <%= f.label :optionals, "Type of Multiplier:" %><br>
+    <p>Select <b>Multiplied</b> if options are multiples of the same service: like "One Facial, Two Facials", the appropriate unit of time like <b>Minute</b> for deals like: "60 Minute Massage, 90 Minute Massage", or <b>People</b> for: "Yoga for One, Yoga for Two".</p>
     <%= f.collection_select :optionals, Article::MULTIPLIERTYPE, :to_s, :to_s, 
        :include_blank => true %>
   </div>
+  <br>
   <div class="field">
-    <%= f.label :option_multiplier, "Multipler on each option as an intereger separated by spaces. One Facial, Two Facials, Four Facials would be: 1 2 4" %><br>
+    <%= f.label :option_multiplier, "Option Multiplier:" %><br>
+    <p>The multipler for every option separated by spaces. "One Facial, Two Facials, Four Facials" would be: 1 2 4.  "60 Minute Massage, 90 Minute Massage" would be: 60 90.  "Yoga for One, Yoga for Two" would be: 1 2.</p>
     <%= f.text_field :option_multiplier %>
   </div>
    <br>
-  <h2>One field for <i><b>"Optional"</i></b> deals:</h2>
+  <h2>One field for <i><b>"Add On"</i></b> deals:</h2>
   <div class="field">
-    <%= f.label :option_descriptor, "All the add ons, separated by \", \".  Blowout, Blowout with Cut, Blowout with Style would be \"Cut, Style\"" %><br>
+    <%= f.label :option_descriptor, "Add-Ons:" %><br>
+    <p>All the add ons, separated by ", ".  "Blowout, Blowout and Hairut, Blowout and All-Over Color" would be: Haircut, All-Over Color</p>
     <%= f.text_field :option_descriptor %>
   </div> 
   <br>
