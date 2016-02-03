@@ -78,16 +78,16 @@ class FirstInputsController < ApplicationController
 			if @first_input.multoption_types == "Multiplied" 
 			
 				if @first_input.optionals == "Deal Times Two"
-					@title = "" << @first_input.option_multiplier.split(' ').map(&:to_i).collect{|x| Article::NUMERALS[x]}.join(" or ") << " " << @first_input.longer_descriptor << " from " << @first_input.biz_name << " Up to $max Off"
+					@title = "" << @first_input.option_multiplier.split(' ').map(&:to_i).collect{|x| Article::NUMERALS[x]}.join(" or ") << " " << @first_input.longer_descriptor << " from " << @first_input.biz_name << " (Up to $max Off)"
 				elsif @first_input.optionals == "People"
-					@title = "" << @first_input.longer_descriptor << " for " << @first_input.option_multiplier.split(' ').map(&:to_i).collect{|x| Article::NUMERALS[x]}.join(" or ") << " " << @first_input.optionals << " from " << @first_input.biz_name << " Up to $max Off"
+					@title = "" << @first_input.longer_descriptor << " for " << @first_input.option_multiplier.split(' ').map(&:to_i).collect{|x| Article::NUMERALS[x]}.join(" or ") << " " << @first_input.optionals << " from " << @first_input.biz_name << " (Up to $max Off)"
 #PARTICULARLY THIS Which is the Time based one	
 				else
-					@title = ""  << @first_input.option_multiplier.split(' ').map(&:to_i).join(" or ") << "  " << @first_input.optionals << " " << @first_input.longer_descriptor << " from " << @first_input.biz_name << " Up to $max Off"
+					@title = ""  << @first_input.option_multiplier.split(' ').map(&:to_i).join(" or ") << "  " << @first_input.optionals << " " << @first_input.longer_descriptor << " from " << @first_input.biz_name << " (Up to $max Off)"
 				end
 			
 			elsif @first_input.multoption_types == "Add-Ons"
-				@title = ""  << @first_input.longer_descriptor << " With Optional " << @first_input.option_descriptor.split(", ")[0..-1].join(" or ").to_s << " from " << @first_input.biz_name << " Up to $max Off"
+				@title = ""  << @first_input.longer_descriptor << " With Optional " << @first_input.option_descriptor.split(", ")[0..-1].join(" or ").to_s << " from " << @first_input.biz_name << " (Up to $max Off)"
 			elsif @first_input.multoption_types == "Complicated"
 				@title = "" << @first_input.longer_descriptor << " from " << @first_input.biz_name << " (Up to $max Off). " << Article::NUMERALS[@first_input.num_options] << " Options Available."
 			end
