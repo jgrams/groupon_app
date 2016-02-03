@@ -78,7 +78,7 @@ class FirstInputsController < ApplicationController
 			if @first_input.multoption_types == "Multiplied" 
 			
 				if @first_input.optionals == "Deal Times Two"
-					@title = "" @first_input.option_multiplier.split(' ').map(&:to_i).collect{|x| Article::NUMERALS[x]}.join(" or ") << " " << @first_input.longer_descriptor << " from " << @first_input.biz_name << " Up to $max Off"
+					@title = "" << @first_input.option_multiplier.split(' ').map(&:to_i).collect{|x| Article::NUMERALS[x]}.join(" or ") << " " << @first_input.longer_descriptor << " from " << @first_input.biz_name << " Up to $max Off"
 				elsif @first_input.optionals == "People"
 					@title = "" << @first_input.longer_descriptor << " for " << @first_input.option_multiplier.split(' ').map(&:to_i).collect{|x| Article::NUMERALS[x]}.join(" or ") << " " << @first_input.optionals << " from " << @first_input.biz_name << " Up to $max Off"
 #PARTICULARLY THIS Which is the Time based one	
