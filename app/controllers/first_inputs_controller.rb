@@ -89,7 +89,7 @@ class FirstInputsController < ApplicationController
 			elsif @first_input.multoption_types == "Add-Ons"
 				@title = ""  << @first_input.longer_descriptor << " With Optional " << @first_input.option_descriptor.split(", ")[0..-1].join(" or ").to_s << " from " << @first_input.biz_name << " Up to $max Off"
 			elsif @first_input.multoption_types == "Complicated"
-				@title = "" << @first_input.longer_descriptor << " from " << @first_input.biz_name << ". " << Article::NUMERALS[@first_input.num_options] << " Options Available."
+				@title = "" << @first_input.longer_descriptor << " from " << @first_input.biz_name << "(Up to $max Off). " << Article::NUMERALS[@first_input.num_options] << " Options Available."
 			end
 	end
 
