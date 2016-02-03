@@ -20,7 +20,7 @@ class Article < ActiveRecord::Base
 end
 
 class Article < ActiveRecord::Base
-	MULTIPLIERTYPE = ['Short Descriptor', 'People', 'Minute', 'Hour', 'Day', 'Week', 'Month', 'Year']
+	MULTIPLIERTYPE = ['Deal Times Two', 'People', 'Minute', 'Hour', 'Day', 'Week', 'Month', 'Year']
 end
 
 #array output functions use to convert integer inputs into string outputs
