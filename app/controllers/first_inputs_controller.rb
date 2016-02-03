@@ -75,13 +75,13 @@ class FirstInputsController < ApplicationController
 		@writeupheader = "####Choose Between " << Article::NUMERALS[@first_input.num_options] << " Options"
 		@temp_writeup = " * $pr for " << @first_input.longer_descriptor.downcase << " ($val value)"
 		@writeup = "#{@temp_writeup}\n" * @first_input.num_options
-			if @first_input.multoption_types == "Deal Times Two" 
+			if @first_input.multoption_types == "Multiplied" 
 			
-				if @first_input.optionals == "Short Descriptor"
+				if @first_input.optionals == "Deal Times Two"
 					@title = "Up to $max Off " << @first_input.option_multiplier.split(' ').map(&:to_i).collect{|x| Article::NUMERALS[x]}.join(" or ") << " " << @first_input.longer_descriptor << " from " << @first_input.biz_name
 				elsif @first_input.optionals == "People"
 					@title = "Up to $max Off " << @first_input.longer_descriptor << " for " << @first_input.option_multiplier.split(' ').map(&:to_i).collect{|x| Article::NUMERALS[x]}.join(" or ") << " " << @first_input.optionals << " from " << @first_input.biz_name
-#PARTICULARLY THIS			
+#PARTICULARLY THIS Which is the Time based one	
 				else
 					@title = "Up to $max Off"  << @first_input.option_multiplier.split(' ').map(&:to_i).join(" or ") << "  " << @first_input.optionals << " " << @first_input.longer_descriptor << " from " << @first_input.biz_name
 				end
